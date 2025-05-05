@@ -1,0 +1,8 @@
+{
+  "name": "n8n-tesseract",
+  "version": "1.0.0",
+  "description": "Custom n8n environment with Tesseract.js",
+  "dependencies": {
+    "tesseract.js": "^5.1.0"
+  }
+}

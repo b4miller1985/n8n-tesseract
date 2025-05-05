@@ -1,0 +1,21 @@
+# 使用官方 n8n 映像（最新版本 1.91.2）
+FROM n8nio/n8n:1.91.2
+
+# 安裝 Chromium 依賴（Puppeteer 需要）
+RUN apk add --no-cache \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
+
+# 安裝 Tesseract.js
+RUN npm install tesseract.js
+
+# 設置 Puppeteer 環境變數
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# 設置工作目錄
+WORKDIR /usr/local/lib/node_modules/n8n
